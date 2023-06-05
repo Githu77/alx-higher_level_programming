@@ -1,15 +1,15 @@
 #include "lists.h"
 
 /**
-* check_cycle - checks for cycle
-* @list: head of pointer
-* Return: 0 or 1
+ * check_cycle - checks for cycle
+ * @list: head of pointer
+ * Return: 0 or 1
+ *
 *
 *
 *
 *
-*
-*/
+ */
 
 int check_cycle(listint_t *list)
 {
@@ -18,10 +18,10 @@ int check_cycle(listint_t *list)
 
 	w = list;
 	w1 = list;
-	while (list && w && w->n)
+	while (list && w && w->next)
 	{
-		list = list->n;
-		w = w->next->n;
+		list = list->next;
+		w = w->next->next;
 
 		if (list == w)
 		{
@@ -30,14 +30,14 @@ int check_cycle(listint_t *list)
 			while (1)
 			{
 				w = w1;
-				while (w->n != list && w->n != w1)
+				while (w->next != list && w->next != w1)
 				{
-					w = w1->n;
+					w = w1->next;
 				}
-				if (w->n == list)
+				if (w->next == list)
 					break;
 
-				list = list->n;
+				list = list->next;
 			}
 			return (1);
 		}
