@@ -8,12 +8,12 @@
 * @x: integer
 * @n: points to the next node
 * Description: singly linked structure
-* 
+*
 */
 typedef struct listint_s
 {
-    int x;
-    struct listint_s *n;
+int x;
+struct listint_s *n;
 } listint_t;
 
 
