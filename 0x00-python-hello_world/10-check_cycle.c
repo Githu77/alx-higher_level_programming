@@ -1,15 +1,15 @@
 #include "lists.h"
 
 /**
- * check_cycle - checks for cycle
- * @list: head of pointer
- * Return: 0 or 1
- *
+* check_cycle - checks for cycle
+* @list: head of pointer
+* Return: 0 or 1
 *
 *
 *
 *
- */
+*
+*/
 
 int check_cycle(listint_t *list)
 {
