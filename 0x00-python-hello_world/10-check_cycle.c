@@ -13,28 +13,28 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *w;
-	listint_t *w1;
+	listint_t *p2;
+	listint_t *prev;
 
-	w = list;
-	w1 = list;
-	while (list && w && w->next)
+	p2 = list;
+	prev = list;
+	while (list && p2 && p2->next)
 	{
 		list = list->next;
-		w = w->next->next;
+		p2 = p2->next->next;
 
-		if (list == w)
+		if (list == p2)
 		{
-			list = w1;
-			w1 = w;
+			list = prev;
+			prev = p2;
 			while (1)
 			{
-				w = w1;
-				while (w->next != list && w->next != w1)
+				p2 = prev;
+				while (p2->next != list && p2->next != prev)
 				{
-					w = w1->next;
+					p2 = p2->next;
 				}
-				if (w->next == list)
+				if (p2->next == list)
 					break;
 
 				list = list->next;
