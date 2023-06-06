@@ -13,28 +13,35 @@
 
 int check_cycle(listint_t *list)
 {
-	
-	listint_t *tortoise;
-	listint_t *hare;
+	listint_t *w;
+	listint_t *w1;
 
-	if (list == NULL)
-		return (0);
-	tortoise = list;
-	hare = list;
-	while (hare->next != NULL && hare->next->next != NULL)
+	w = list;
+	w1 = list;
+	while (list && w && w->next)
 	{
-		tortoise = tortoise->next;
-		hare = hare->next->next;
-		if (tortoise == hare)
+		list = list->next;
+		w = w->next->next;
+
+		if (list == w)
 		{
-			tortoise = list;
-			while (tortoise != hare)
+			list = w1;
+			w1 = w;
+			while (1)
 			{
-				tortoise = tortoise->next;
-				hare = hare->next;
+				w = w1;
+				while (w->next != list && w->next != w1)
+				{
+					w = w1->next;
+				}
+				if (w->next == list)
+					break;
+
+				list = list->next;
 			}
 			return (1);
 		}
 	}
+
 	return (0);
 }
