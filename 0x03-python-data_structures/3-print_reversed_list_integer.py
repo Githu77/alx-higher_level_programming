@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-def print_reserved_list_integer(my_list=[]):
-    if not my_list:
-        pass
-    else:
-        my_list.reverse()
-        for x in range(len(my_list)):
-            print("{:d}".format(my_list[x]))
+def print_reversed_list_integer(my_list=[]):
+    if my_list is None:
+        return ('None')
+    my_list.reverse()
+    for x in my_list:
+        print("{:d}".format(x))
